@@ -1,0 +1,65 @@
+import {component} from 'react'
+import './index.css'
+
+class ClickCounter extends component {
+  state = {count: 0}
+
+  onIncrement = () => {
+    this.setState(prevState => ({count: prevState.count + 1}))
+  }
+
+  render() {
+    const {count} = this.state
+    return (
+      <div className="bg-container">
+        <h1 className="heading">
+          The Button has been clicked <span className="count">{count}</span>
+          times.
+        </h1>
+        <p className="para">Click the button to increase the count!</p>
+        <button type="button" className="button" onClick={this.onIncrement}>
+          Click Me!
+        </button>
+      </div>
+    )
+  }
+}
+
+export default ClickCounter
+
+
+
+CSS CODE
+
+.bg-container {
+  background-color: #f1f5f8;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: #2d3a35;
+}
+
+.count {
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: #c20a72;
+}
+
+.para {
+  font-family: 'Roboto';
+}
+
+.button {
+  background-color: #007bff;
+  border-radius: 5px;
+  border-width: 0px;
+  color: #ffffff;
+}
